@@ -1,0 +1,6 @@
+# Ignorar carpetas específicas
+/node_modules/
+/.angular/
+/.vscode/
+
+.git
