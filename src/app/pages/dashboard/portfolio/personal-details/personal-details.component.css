@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    max-width: 70px;
+    max-height: 40px;
+}

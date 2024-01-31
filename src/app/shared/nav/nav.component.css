@@ -1,0 +1,11 @@
+
+  @media (min-width: 100px) {
+    .navbar-expand-lg .navbar-nav {
+        
+        flex-direction: row; /* Cambia la dirección a columna para pantallas pequeñas */
+    }
+  }
+
+  li{
+    margin: 0 10px;
+  }
