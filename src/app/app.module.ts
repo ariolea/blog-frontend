@@ -15,6 +15,7 @@ import { JwtInterceptorService } from './services/auth/jwt-interceptor.service';
 import { ErrorInterceptorService } from './services/auth/error-interceptor.service';
 import { RegisterComponent } from './auth/register/register.component';
 import { AcademicProfessionalDataComponent } from './pages/dashboard/portfolio/academic-professional-data/academic-professional-data.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AcademicProfessionalDataComponent } from './pages/dashboard/portfolio/a
     PersonalDetailsComponent,
     RegisterComponent,
     AcademicProfessionalDataComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
