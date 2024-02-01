@@ -1,17 +1,25 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <div id="navbarNav">
       <ul class="navbar-nav">
+        <li class="nav-item " style="margin-right: 20px; margin-left: 10px;">
+          <a class="nav-link" routerLink="/inicio">Inicio</a>
+        </li>
         <li class="nav-item">
-          <a class="nav-link active" routerLink="/inicio">Acerca de mi</a>
-        </li>
-        <li *ngIf="!userLoginOn" class="nav-item">
-          <a class="nav-link" routerLink="/iniciar-sesion">Iniciar Sesión</a>
-        </li>
-        <li *ngIf="userLoginOn" class="nav-item">
-          <a class="nav-link" (click)="logout()" routerLink="/iniciar-sesion">Cerrar Sesión</a>
+          <a class="nav-link" routerLink="/acerca-de-mi">Acerca de mi</a>
         </li>
       </ul>
     </div>
   </div>
+  <div>
+    <div>
+      <ul class="navbar-nav">
+        <li *ngIf="!userLoginOn" class="nav-item">
+          <a class="nav-link" routerLink="/iniciar-sesion">Iniciar Sesión</a>
+        </li>
+        <button class="btn btn-outline-danger" (click)="logout()" routerLink="/iniciar-sesion">Cerrar Sesión</button>
+      </ul>
+    </div>
+  </div>
 </nav>
+
