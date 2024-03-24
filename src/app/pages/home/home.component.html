@@ -1,5 +1,33 @@
-<app-nav></app-nav>
-<p style="margin-top: 50px;">home works!</p>
+<div class="contact-form">
+    <div>
+        <img *ngIf="profilePicture" [src]="profilePicture" alt="usuario">
+        <img *ngIf="!profilePicture" src="assets\avatarr.webp" alt="usuario">
+    </div>
+    <div>
+        <input class="form-control" type="text" id="message" name="message" [(ngModel)]="blog.message"
+            placeholder="¿Qué estas pensando, {{name}}?">
+    </div>
+    <div>
+        <button type="submit" (click)="post()">Enviar</button>
+    </div>
+</div>
+
+<div *ngFor="let blog of blogs" class="post-container">
+    <div class="user-profile">
+        <div>
+            <img *ngIf="blog.profilePicture" [src]="blog.profilePicture" alt="usuario">
+            <img *ngIf="!blog.profilePicture" src="assets\avatarr.webp" alt="usuario">
+        </div>
+        <div class="info-container">
+            <span class="username">{{blog.firstname}}</span>
+            <span class="tiempo">{{blog.time}}</span>
+        </div>
+    </div>
+    <div class="post-content">
+        <p>{{ blog.message }}</p>
+        <img *ngIf="blog.image" [src]="blog.image" alt="imagen">
+    </div>
+</div>
 
 
-<app-footer class="fixed-bottom"></app-footer>
+<app-footer></app-footer>

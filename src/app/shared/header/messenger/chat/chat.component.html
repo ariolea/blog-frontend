@@ -1,0 +1,37 @@
+<div class="chat-container" *ngIf="userLoginOn && chat">
+    <div class="chat-header">
+        <img src="assets/avatarr.webp" alt="usuario">
+        <h2>Anonimo</h2>
+    </div>
+    <div class="chat-messages">
+        <div class="message-sender">
+            <div class="message-text">Hola, ¿cómo estás?</div>
+        </div>
+        <div class="message-recipient">
+            <div class="message-image">
+                <img src="assets/avatarr.webp" alt="usuario">
+            </div>
+            <div class="message-text">Bien, ¿y tú?</div>
+        </div>
+        <div class="message-sender">
+            <div class="message-text">Estoy muy bien, gracias por preguntar.</div>
+        </div>
+        <div class="message-sender">
+            <div class="message-text">Estarás en tu casa hoy?</div>
+        </div>
+        <div class="message-recipient">
+            <div class="message-image">
+                <img src="assets/avatarr.webp" alt="usuario">
+            </div>
+            <div class="message-text">Si, aqui estare todo el dia</div>
+        </div>
+        <div class="message-sender">
+            <div class="message-text">Te aviso cuando vaya</div>
+        </div>
+        <div #lastMessage></div>
+    </div>
+    <div class="chat-input">
+        <input type="text" placeholder="Escribe tu mensaje aquí...">
+        <button type="submit"><img src="/assets/send.png" alt="Enviar"></button>
+    </div>
+</div>

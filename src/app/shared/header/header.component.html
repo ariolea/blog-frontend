@@ -1,5 +1,16 @@
 <header>
-    <div class="py-4">
-        <h1 class="display-4">Blog Club de Pesca</h1>
+    <div class="header">
+        <div *ngIf="userLoginOn" class="home">
+            <img src="/assets/home.png" alt="Inicio" routerLink="/inicio">
+        </div>
+        <div class="h1">
+            <h1 class="display-4">Blog CDP</h1>
+        </div>
+        <div *ngIf="userLoginOn" class="image-user">
+            <app-messenger></app-messenger>
+        </div>
+        <div *ngIf="userLoginOn" class="image-user">
+            <app-profile-picture></app-profile-picture>
+        </div>
     </div>
 </header>

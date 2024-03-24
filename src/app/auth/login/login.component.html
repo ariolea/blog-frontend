@@ -1,32 +1,36 @@
 <form [formGroup]="loginForm">
     <p class="text-danger">{{loginError}}</p>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email</label>
-        <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1"
-            aria-describedby="emailHelp">
-        <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
-            <div *ngIf="username.errors?.['required']">
-                El Email es requerido.
-            </div>
-            <div *ngIf="username.errors?.['email']">
-                El Email debe tener un formato válido.
-            </div>
-        </div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
-        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
-            <div *ngIf="password.errors?.['required']">
-                El Password es requerido.
+    <div class="container">
+        <div class="mb-3">
+            <label for="exampleInputEmail1">Email</label>
+            <input formControlName="username" type="email" class="form-control" id="exampleInputEmail1"
+                aria-describedby="emailHelp">
+            <div *ngIf="username.invalid && (username.dirty || username.touched)" class="text-danger">
+                <div *ngIf="username.errors?.['required']">
+                    El Email es requerido.
+                </div>
+                <div *ngIf="username.errors?.['email']">
+                    El Email debe tener un formato válido.
+                </div>
             </div>
         </div>
-    </div>
-    <button type="submit" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
-    <div class="btn-registrar">
-        <button (click)="registrarse()" class="btn btn-secondary">Registrarse</button>
+        <div class="mb-3">
+            <label for="exampleInputPassword1">Password</label>
+            <input formControlName="password" type="password" class="form-control" id="exampleInputPassword1">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+                <div *ngIf="password.errors?.['required']">
+                    El Password es requerido.
+                </div>
+            </div>
+        </div>
+        <div class="buttons">
+            <button type="submit" (click)="login()" class="btn btn-primary">Iniciar Sesión</button>
+            <hr>
+            <button (click)="registrarse()" class="btn btn-secondary btn-registrar">Registrarse</button>
+        </div>
     </div>
 </form>
+
 
 
 <app-footer class="fixed-bottom"></app-footer>

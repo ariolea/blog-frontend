@@ -2,6 +2,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 import { User } from '../auth/user';
+import { updateProfilePictureRequest } from '../auth/updateProfilePictureRequest';
 import { environment } from 'src/environments/enviroment';
 import { UserRegister } from '../auth/userRegister';
 
@@ -26,6 +27,12 @@ export class UserService {
 
   updateUser(userRequest: User): Observable<any> {
     return this.http.put(environment.urlApi + "user", userRequest).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  updateProfilePicture(updateProfilePictureRequest: updateProfilePictureRequest): Observable<any> {
+    return this.http.put(environment.urlApi + "user/profilePicture", updateProfilePictureRequest).pipe(
       catchError(this.handleError)
     )
   }

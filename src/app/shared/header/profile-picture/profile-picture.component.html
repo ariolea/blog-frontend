@@ -1,0 +1,21 @@
+<div class="container">
+    <div>
+        <img *ngIf="image" [src]="image" alt="usuario" (click)="opciones()">
+        <img *ngIf="!image" src="assets\avatarr.webp" alt="usuario" (click)="opciones()">
+    </div>
+    <div class="name">
+        <span (click)="opciones()">{{name}}</span>
+    </div>
+</div>
+
+<div *ngIf="menuOpciones && userLoginOn" class="container2">
+    <span class="about" routerLink="/acerca-de-mi" (click)="about()">Acerca de mi</span>
+    <label for="archivo" class="file-upload">
+        <span>+ Subir foto perfil</span>
+        <input id="archivo" type="file" class="form-control" accept="image/*" style="display: none;"
+            (change)="upload($event)">
+    </label>
+    <div class="logout">
+        <button class="btn btn-outline-danger" (click)="logout()" routerLink="/iniciar-sesion">Cerrar Sesión</button>
+    </div>
+</div>

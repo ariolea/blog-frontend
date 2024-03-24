@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRegister } from 'src/app/services/auth/userRegister';
+import { CountriesService } from 'src/app/services/countries/countries.service';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -18,9 +19,21 @@ export class RegisterComponent {
     firstname: ['', Validators.required],
     country: ['', Validators.required]
   });
+  
+  countries: any[] = [];
 
-  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(private formBuilder: FormBuilder, private userService: UserService, private router: Router, private countriesService: CountriesService) { }
 
+
+  searchCountries() {
+    if(!this.country.value){
+      this.countriesService.searchCountry().subscribe(data => {
+        this.countries = data;
+      });
+    }
+    else{
+      console.log(this.country.value);
+    }
   }
 
   register() {
@@ -45,7 +58,6 @@ export class RegisterComponent {
       this.registerForm.markAllAsTouched();
     }
   }
-
 
   get username() {
     return this.registerForm.controls.username;

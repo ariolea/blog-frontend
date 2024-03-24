@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user/user.service';
   templateUrl: './personal-details.component.html',
   styleUrls: ['./personal-details.component.css']
 })
-export class PersonalDetailsComponent implements OnInit {
+export class PersonalDetailsComponent {
   errorMessage: String = "";
   user?: User;
   userLoginOn: boolean = false;
@@ -23,7 +23,7 @@ export class PersonalDetailsComponent implements OnInit {
     country: ['', Validators.required],
     mobile: ['', Validators.required],
     currentCity: ['', Validators.required],
-    email: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
     gender: ['', Validators.required]
   })
 
@@ -37,7 +37,6 @@ export class PersonalDetailsComponent implements OnInit {
 
     this.loginService.username.subscribe((username) => {
       this.username = username;
-      /* console.log('Nombre de usuario:', this.username); */
     });
 
     this.userService.getUser(this.username).subscribe({
@@ -56,13 +55,10 @@ export class PersonalDetailsComponent implements OnInit {
         this.errorMessage = errorData
       },
       complete: () => {
-        /* console.info("User Data ok"); */
       }
     })
 
   }
-
-  ngOnInit(): void { }
 
   get firstname() {
     return this.registerForm.controls.firstname;
@@ -99,9 +95,13 @@ export class PersonalDetailsComponent implements OnInit {
         next: () => {
           this.editMode = false;
           this.user = this.registerForm.value as unknown as User;
+          window.location.reload();
         },
         error: (errorData) => console.error(errorData)
       })
+    }
+    else {
+      this.registerForm.markAllAsTouched();
     }
   }
 

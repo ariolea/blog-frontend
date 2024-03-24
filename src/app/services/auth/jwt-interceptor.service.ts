@@ -12,6 +12,11 @@ export class JwtInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let token: String = this.loginService.userToken;
 
+    // Si la URL de la solicitud es la que quieres excluir, se pasa directamente al siguiente manipulador sin modificarla.
+    if (req.url === 'http://localhost:8080/media/upload') {
+      return next.handle(req);
+    }
+
     if (token != "") {
       req = req.clone(
         {
@@ -23,9 +28,6 @@ export class JwtInterceptorService implements HttpInterceptor {
         }
       );
     }
-    
     return next.handle(req);
   }
-
-
 }
